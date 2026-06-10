@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+
+# cache de scrape (regenerado em runtime)
+server/data/cache.json
+
+# artefatos de investigação
+probe*.mjs
+cbx_torneios.html

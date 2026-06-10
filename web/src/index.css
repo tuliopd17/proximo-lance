@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+/* ----------------------------------------------------------------- palette
+   Tons de tabuleiro de madeira: marfim, nogueira, feltro verde e ouro.
+   Nada de neon / cyberpunk. */
+@theme {
+  --color-parchment: #f7f1e3;
+  --color-parchment-2: #f1e8d5;
+  --color-ivory: #f6efdd;
+  --color-board-light: #ecd9b0;
+  --color-board-dark: #b07a4e;
+  --color-walnut: #5a3a22;
+  --color-walnut-2: #7a5333;
+  --color-walnut-soft: #9b7549;
+  --color-felt: #2f5d45;
+  --color-felt-2: #3c7458;
+  --color-felt-deep: #213f30;
+  --color-gold: #c39536;
+  --color-gold-soft: #d9b863;
+  --color-ink: #2a2117;
+  --color-ink-soft: #5b4d3c;
+
+  --font-display: 'Marcellus', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(42, 33, 23, 0.06), 0 12px 30px -12px rgba(42, 33, 23, 0.25);
+  --shadow-soft: 0 10px 40px -20px rgba(42, 33, 23, 0.45);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-parchment);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-ink);
+  }
+}
+
+/* tabuleiro sutil de fundo */
+.board-grid {
+  background-image:
+    linear-gradient(45deg, rgba(90, 58, 34, 0.05) 25%, transparent 25%, transparent 75%, rgba(90, 58, 34, 0.05) 75%),
+    linear-gradient(45deg, rgba(90, 58, 34, 0.05) 25%, transparent 25%, transparent 75%, rgba(90, 58, 34, 0.05) 75%);
+  background-size: 64px 64px;
+  background-position: 0 0, 32px 32px;
+}
+
+/* anel de foco dourado consistente */
+.ring-gold:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(195, 149, 54, 0.45);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
