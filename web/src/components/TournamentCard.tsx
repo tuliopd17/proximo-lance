@@ -2,7 +2,7 @@ import type { Tournament } from '../lib/types';
 import {
   formatCountdown,
   formatDistance,
-  formatFee,
+  formatPlayers,
   formatPeriod,
   ritmoIcon,
 } from '../lib/format';
@@ -101,7 +101,7 @@ export function TournamentCard({ t, index }: { t: Tournament; index: number }) {
             label="Sistema"
             value={t.system ? `${t.system}${t.rounds ? ` · ${t.rounds} rodadas` : ''}` : '—'}
           />
-          <Stat icon={<IconTicket />} label="Inscrição" value={formatFee(t.fee)} />
+          <Stat icon={<IconUsers />} label="Participantes" value={formatPlayers(t.players)} />
         </div>
 
         {/* organizador */}
@@ -151,8 +151,8 @@ const IconClock = () => (
 const IconGrid = () => (
   <svg {...S}><rect x="3" y="3" width="18" height="18" rx="1.5" /><path d="M3 9h18M3 15h18M9 3v18M15 3v18" /></svg>
 );
-const IconTicket = () => (
-  <svg {...S}><path d="M3 8.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 7 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-7Z" /><path d="M14 6.5v11" strokeDasharray="2 2" /></svg>
+const IconUsers = () => (
+  <svg {...S}><path d="M16 19v-1.5A3.5 3.5 0 0 0 12.5 14h-5A3.5 3.5 0 0 0 4 17.5V19" /><circle cx="10" cy="8" r="3.2" /><path d="M19.5 19v-1.2a3 3 0 0 0-2.3-2.9M15.5 5.2a3 3 0 0 1 0 5.6" /></svg>
 );
 const IconArrow = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>

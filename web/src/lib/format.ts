@@ -41,11 +41,11 @@ export function formatCountdown(start: string | null): string | null {
   return null;
 }
 
-export function formatFee(fee: { value: number; estimated: boolean } | null): string {
-  if (!fee) return 'Não informado';
-  if (fee.value === 0) return 'Gratuito';
-  const v = fee.value.toLocaleString('pt-BR');
-  return fee.estimated ? `~ R$ ${v}` : `R$ ${v}`;
+/** "~ 150 jogadores" — a CBX anota só a estimativa de participantes. */
+export function formatPlayers(players: { value: number; estimated: boolean } | null): string {
+  if (!players) return 'Não informado';
+  const v = players.value.toLocaleString('pt-BR');
+  return players.estimated ? `~ ${v} jogadores` : `${v} jogadores`;
 }
 
 export function formatDistance(km: number | null): string {

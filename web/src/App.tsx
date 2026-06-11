@@ -189,7 +189,7 @@ function Header() {
         <h1 className="mt-3 font-display text-5xl tracking-tight sm:text-6xl">Próximo Lance</h1>
         <p className="mt-3 max-w-xl font-serif text-xl text-parchment/85 sm:text-2xl">
           Descubra os torneios de xadrez oficiais que acontecem perto de você, em qualquer
-          cidade do Brasil — com data, ritmo, inscrição e tudo o que importa.
+          cidade do Brasil — com data, ritmo, participantes e tudo o que importa.
         </p>
       </div>
     </header>
@@ -278,7 +278,7 @@ function Footer({ fetchedAt }: { fetchedAt?: number }) {
           <a href="https://cbx.org.br/torneios" target="_blank" rel="noreferrer" className="font-medium text-walnut underline">
             Confederação Brasileira de Xadrez (CBX)
           </a>
-          . Valores de inscrição podem ser estimados — confirme sempre no regulamento.
+          . O número de participantes é uma estimativa — confirme sempre no regulamento.
         </p>
         {fetchedAt && (
           <p className="font-sans text-[11px] text-ink-soft/50">

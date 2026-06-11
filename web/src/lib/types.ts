@@ -6,7 +6,7 @@ export interface City {
   capital?: boolean;
 }
 
-export interface Fee {
+export interface Players {
   value: number;
   estimated: boolean;
 }
@@ -28,7 +28,7 @@ export interface Tournament {
   system: string | null;
   rounds: number | null;
   timeControl: string | null;
-  fee: Fee | null;
+  players: Players | null;
   fideUrl: string | null;
   lat: number | null;
   lng: number | null;

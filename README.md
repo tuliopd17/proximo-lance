@@ -26,7 +26,7 @@ distante. Cada torneio mostra:
 - 📅 **Datas** e contagem regressiva ("Hoje", "Amanhã", "Em 5 dias")
 - ⏱️ **Ritmo das partidas** (Clássico, Rápido ou Blitz, com controle de tempo: `90min + 30s/lance`)
 - ♟ **Sistema de jogo** (Suíço, Round Robin…) e número de rodadas
-- 💰 **Valor da inscrição** (com `~` quando for estimativa do calendário)
+- 👥 **Número de participantes** (estimativa do calendário, marcada com `~`)
 - 🔗 Links para o **regulamento na CBX** e a **página oficial do evento na FIDE**
 - 🆕 Selo **"Novo"** nos torneios que entraram no calendário nas últimas 48 h
 
@@ -101,8 +101,8 @@ apontando para este repositório — ele detecta o `render.yaml` e configura tud
 
 - A CBX não publica **premiação** nem **horário das rodadas** de forma
   estruturada — quando ausentes, o card aponta para o regulamento.
-- Valores de inscrição com `~` são estimativas do calendário; confirme no
-  regulamento antes de viajar.
+- O número de participantes (`Est.` no calendário) é uma **estimativa** dos
+  organizadores, marcada com `~`; confirme no regulamento antes de viajar.
 - O filtro por perfil (sexo/idade) é uma heurística sobre o **nome** do
   torneio; alguns usam ano de nascimento como corte, não a idade no dia.
 

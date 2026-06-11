@@ -66,7 +66,14 @@ const SYSTEMS = {
 
 function parseObs(raw) {
   const txt = after(raw, 'Observação:').replace(/\s*\n\s*/g, ' ').trim();
-  const out = { raw: txt, system: null, rounds: null, timeControl: null, fee: null, fideUrl: null };
+  const out = {
+    raw: txt,
+    system: null,
+    rounds: null,
+    timeControl: null,
+    players: null,
+    fideUrl: null,
+  };
 
   const sys = txt.match(/\b(SS|RR|KO|SC)\s*(\d+)?/i);
   if (sys) {
@@ -77,13 +84,11 @@ function parseObs(raw) {
   const tc = txt.match(/(\d+)\s*'?\s*\+\s*(\d+)\s*''?/);
   if (tc) out.timeControl = `${tc[1]}min + ${tc[2]}s/lance`;
 
-  // inscrição: "Est.150", "R$ 150", "Gratuito"
-  if (/gratuito|gr[aá]tis|sem\s+custo/i.test(txt)) {
-    out.fee = { value: 0, estimated: false };
-  } else {
-    const fee = txt.match(/(?:Est\.?|R\$)\s*([\d.]+)/i);
-    if (fee) out.fee = { value: Number(fee[1].replace('.', '')), estimated: /est/i.test(fee[0]) };
-  }
+  // "Est.150" no calendário da CBX é a estimativa de PARTICIPANTES do torneio,
+  // não a taxa de inscrição. (ex.: "RR18 ... Est.10" = round-robin duplo de 10
+  // jogadores = 18 rodadas.)
+  const players = txt.match(/Est\.?\s*(\d+)/i);
+  if (players) out.players = { value: Number(players[1]), estimated: true };
 
   const url = txt.match(/https?:\/\/\S+/);
   if (url) {
